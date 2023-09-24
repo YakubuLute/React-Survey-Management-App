@@ -57,8 +57,6 @@ class SurveyResponse(models.Model):
         return str(self.data)[0:3]
 
 
-#
-
 LOGGER = logging.getLogger(__name__)
 
 CHOICES_HELP_TEXT = _(
