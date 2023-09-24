@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./survey_backend
+    command: /entrypoint.sh
+    volumes:
+      -  static:/static
+    ports:
+      -"8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+     build:
+        context: ./survey_client
+     volumes:
+      - survey_client:app/build
+     ports:
+       -"3000:3000"
+     depends_on:
+      - survey_backend
+
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql
+    environment:
+      - POSTGRES_DB=survey
+      - DB_ENGINE=django.db.backends.postgresql
+      - POSTGRES_USER=master
+      - POSTGRES_PASSWORD=keypass
+
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - static:/static
+      - survey_client:/var/www/frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  static:
+  frontend:

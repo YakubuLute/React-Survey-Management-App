@@ -1,0 +1,116 @@
+:root {
+
+  --on-primary: #100E17;
+
+  --surface: #1D1C1F;
+  --on-surface: #DDDAE5;
+  --on-surface-variant: #7B7980;
+  --on-surface-variant-2: #B9B6BF;
+  --outline: #3E3D40;
+  --white: #fff;
+
+  --black-alpha-10: hsla(0, 0%, 0%, 0.1);
+  --ff-Montserrat: 'Montserrat', Arial, sans-serif;
+
+  --background: #21283b;
+  --main-bg-color: #233055;
+  --btn-color: var(--white-color);
+  --btn-background: #21283b;
+
+  /* Gradient Color */
+  --gradient-1: linear-gradient(180deg, hsla(270, 5%, 7%, 0) 0%, hsla(270, 5%, 7%, 0) 65%, hsl(270, 5%, 7%) 100%);
+  --gradient-2: linear-gradient(180deg, hsla(260, 5%, 12%, 0) 0%, hsla(260, 5%, 12%, 0.8) 65%, hsl(260, 5%, 12%) 100%);
+
+  --shadow-1: 0 1px 3px hsla(0, 0%, 0%, 0.5);
+  --shadow-2: 0 3px 3px hsla(0, 0%, 0%, 0.4);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.html,
+body {
+  height: 100%;
+  background-color: var(--main-bg-color);
+}
+
+#root {
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: var(--background);
+  box-sizing: border-box;
+  display: flex;
+}
+
+/* #root div {
+  background-color: var(--background);
+} */
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.error {
+  color: red !important;
+}
+
+.STbSE {
+  box-shadow: none !important;
+}
+
+.page404 {
+  position: relative;
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  align-items: center;
+  place-content: center;
+}
+
+.page404 .title,
+.page404 a {
+  color: #fff !important;
+  font-size: 18px;
+}
+
+.icon-bl {
+  color: var(--on-surface-variant);
+  position: relative;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goKFPz {
+  background-color: var(--btn-background) !important;
+}
+
+.czxvkd {
+  background-color: transparent !important;
+}
+
+.add-icon {
+  color: var(--btn-background) !important;
+}
+
+.jrKjCd,
+.iJMQhC {
+  background-color: transparent !important;
+}
