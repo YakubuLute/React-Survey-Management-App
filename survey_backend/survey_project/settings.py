@@ -56,7 +56,8 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
 ]
-# CORS MIddleware
+
+# CORS MIddleware configuration to accept front end client on port 300
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3000",
