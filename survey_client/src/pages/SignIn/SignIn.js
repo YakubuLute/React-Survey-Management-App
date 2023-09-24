@@ -12,12 +12,10 @@ export default function SignIn() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
-  // get signin method from api context
-
   const navigate = useNavigate();
-
+  // get signin method from api context
   const { userName, loginUser, error, setError } = useAuth();
-
+  
   //  if there's user redirect to homepage
   useEffect(() => {
     if (userName) {
