@@ -14,7 +14,6 @@ LOGGER = logging.getLogger(__name__)
 
 class Survey(models.Model):
     isActive = models.BooleanField(default=False)
-    # TODO: Get the date the survey was created and subtract it from say one week
     isClosed = models.BooleanField(default=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default="master")
     survey_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
@@ -58,7 +57,7 @@ class SurveyResponse(models.Model):
         return str(self.data)[0:3]
 
 
-# FOr survey questions questions
+#
 
 LOGGER = logging.getLogger(__name__)
 
@@ -137,9 +136,7 @@ class Question(models.Model):
 
     @property
     def answers_as_text(self):
-        """Return answers as a list of text.
-
-        :rtype: List"""
+        """Return answers as a list of text. """
         answers_as_text = []
         for answer in self.answers.all():
             for value in answer.values:
