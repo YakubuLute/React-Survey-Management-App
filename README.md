@@ -11,7 +11,15 @@ This project is a Django web application that allows users (Survey Admin - SA) t
 
 ## Final Project UI
 
-path: `/survey_client/final ui/`
+path: `/survey_c![survey list page](https://github.com/YakubuLute/SM-TEST/assets/25339037/7228fe62-6ba4-46d0-a61f-83c72367fd5a)
+![register page](https://github.com/YakubuLute/SM-TEST/assets/25339037/917773ed-b368-4a93-9afa-be19b43df332)
+![login page](https://github.com/YakubuLute/SM-TEST/assets/25339037/38b95e78-72ab-4486-acbc-61f48f3ab491)
+![completed survey](https://github.com/YakubuLute/SM-TEST/assets/25339037/3ae008a2-3a3f-44bc-819a-88f24f4c0c95)
+![add a survey](https://github.com/YakubuLute/SM-TEST/assets/25339037/63b3c403-f9a0-422d-966c-b5211896ca55)
+![take a survey](https://github.com/YakubuLute/SM-TEST/assets/25339037/e42e5b1d-54b9-4aca-8dc8-020cb639d613)
+![survey list](https://github.com/YakubuLute/SM-TEST/assets/25339037/2a5b5c0a-b92a-41af-8913-5695538d8b91)
+lient/final ui/`
+
 
 ## Technologies/Programming Languages Used (Backend)
 
