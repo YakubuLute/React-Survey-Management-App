@@ -9,6 +9,15 @@ This project is a Django web application that allows users (Survey Admin - SA) t
 - For a given survey, each field added has a label and
 - an attribute indicating whether the SP is required to provide an input or not.
 
+# Currently i am facing environment limitations regarding the setting up of docker on my local machaine. I will run out of time if I were to fix the issue. 
+# So I have provided a script to run the application (Both frontend and backend) locally
+` 
+frontend script: build_frontend_local.sh
+backend script: build_backend_local.sh
+
+`
+
+
 ## Final Project UI
 
 path: `/survey_c![survey list page](https://github.com/YakubuLute/SM-TEST/assets/25339037/7228fe62-6ba4-46d0-a61f-83c72367fd5a)
@@ -69,6 +78,7 @@ python manage.py runserver
  2. npm start
 
 ```
+
 
 # DJANGO URLS TO ACCESS THE BACKEND
 
