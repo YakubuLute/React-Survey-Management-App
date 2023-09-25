@@ -19,15 +19,14 @@ backend script: build_backend_local.sh
 
 
 ## Final Project UI
+![add a survey](https://github.com/YakubuLute/SM-TEST/assets/25339037/cf5d36b9-2296-4d78-93c8-33c42a39710c)
+![take a survey](https://github.com/YakubuLute/SM-TEST/assets/25339037/88fefedf-186f-44db-aa54-b2890e518de5)
+![survey list](https://github.com/YakubuLute/SM-TEST/assets/25339037/3239d1b6-b4fc-4909-ad7c-72ff8a3dc5bd)
+![survey list page](https://github.com/YakubuLute/SM-TEST/assets/25339037/d49e868f-2cc8-42af-8797-0a1c80f47cff)
+![register page](https://github.com/YakubuLute/SM-TEST/assets/25339037/3698cb26-e59d-4b2c-8216-a9890db84cbf)
+![login page](https://github.com/YakubuLute/SM-TEST/assets/25339037/c6f07cd7-b75a-490b-9c9e-6a7212253e83)
+![completed survey](https://github.com/YakubuLute/SM-TEST/assets/25339037/7c452658-ed77-4b08-a093-ae06335d7150)
 
-path: `/survey_c![survey list page](https://github.com/YakubuLute/SM-TEST/assets/25339037/7228fe62-6ba4-46d0-a61f-83c72367fd5a)
-![register page](https://github.com/YakubuLute/SM-TEST/assets/25339037/917773ed-b368-4a93-9afa-be19b43df332)
-![login page](https://github.com/YakubuLute/SM-TEST/assets/25339037/38b95e78-72ab-4486-acbc-61f48f3ab491)
-![completed survey](https://github.com/YakubuLute/SM-TEST/assets/25339037/3ae008a2-3a3f-44bc-819a-88f24f4c0c95)
-![add a survey](https://github.com/YakubuLute/SM-TEST/assets/25339037/63b3c403-f9a0-422d-966c-b5211896ca55)
-![take a survey](https://github.com/YakubuLute/SM-TEST/assets/25339037/e42e5b1d-54b9-4aca-8dc8-020cb639d613)
-![survey list](https://github.com/YakubuLute/SM-TEST/assets/25339037/2a5b5c0a-b92a-41af-8913-5695538d8b91)
-lient/final ui/`
 
 
 ## Technologies/Programming Languages Used (Backend)
