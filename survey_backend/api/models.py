@@ -14,29 +14,16 @@ LOGGER = logging.getLogger(__name__)
 
 class Survey(models.Model):
     isActive = models.BooleanField(default=False)
-    isClosed = models.BooleanField(default=True)
+    isClosed = models.BooleanField(default=False)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default="master")
     survey_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     survey_title = models.CharField(max_length=255)
     date_created = models.DateTimeField(auto_now_add=True)
     time_created = models.TimeField(auto_now=True)
     detail = models.TextField()
-    field_type = models.CharField(
-    max_length=20,
-    choices=[
-            ('text', 'Text'),
-            ('number', 'Number'),
-            ('choice', 'Option'),
-            ('check', 'Check Box'),
-            ('image', 'Image'),
-            ('file', 'File'),
-        ]
-    )
-    choices = models.TextField(blank=True)
-
     class Meta:
         verbose_name_plural = "Surveys"
-        ordering = ('-date_created',)
+        ordering = ['-date_created']
 
     def __str__(self):
         return  self.survey_title[0:10]+ "... created by " + self.owner.username
@@ -48,16 +35,18 @@ class SurveyResponse(models.Model):
     time = models.TimeField(default=timezone.now)
     data = models.TextField(max_length=400)
     user=models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    # FOr users who have not register we will use the ip address as the user
+    unregistered_user=models.URLField(null=True, blank=True)
     
     class Meta:
-        verbose_name_plural = "Survey Response"
+        verbose_name_plural = "Survey Responses"
         ordering = ('-date',)
 
     def __str__(self):
         return str(self.data)[0:3]
 
 
-LOGGER = logging.getLogger(__name__)
+# FOr survey questions questions
 
 CHOICES_HELP_TEXT = _(
     """The choices field is only used if the question type
@@ -84,13 +73,13 @@ def validate_choices(choices):
 
 class Question(models.Model):
     TEXT = "text"
-    SHORT_TEXT = "short-text"
+    SHORT_TEXT = "textarea"
     RADIO = "radio"
     SELECT = "select"
-    SELECT_IMAGE = "select_image"
+    SELECT_IMAGE = "File[type='image']"
+    FILE = "File"
     SELECT_MULTIPLE = "select-multiple"
-    INTEGER = "integer"
-    FLOAT = "float"
+    NUMBER = "number"
     DATE = "date"
 
     QUESTION_TYPES = (
@@ -100,8 +89,8 @@ class Question(models.Model):
         (SELECT, _("select")),
         (SELECT_MULTIPLE, _("Select Multiple")),
         (SELECT_IMAGE, _("Select Image")),
-        (INTEGER, _("integer")),
-        (FLOAT, _("float")),
+        (FILE, _("File")),
+        (NUMBER, _("number")),
         (DATE, _("date")),
     )
 
@@ -112,8 +101,8 @@ class Question(models.Model):
     choices = models.TextField(_("Choices"), blank=True, null=True, help_text=CHOICES_HELP_TEXT)
 
     class Meta:
-        verbose_name = _("question")
-        verbose_name_plural = _("questions")
+        verbose_name = "Question"
+        verbose_name_plural = "Questions"
         
 
     def save(self, *args, **kwargs):
@@ -134,7 +123,9 @@ class Question(models.Model):
 
     @property
     def answers_as_text(self):
-        """Return answers as a list of text. """
+        """Return answers as a list of text.
+
+        :rtype: List"""
         answers_as_text = []
         for answer in self.answers.all():
             for value in answer.values:
