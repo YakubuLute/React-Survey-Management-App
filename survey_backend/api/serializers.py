@@ -9,7 +9,6 @@ from .models import Survey, SurveyResponse
 UserModel = get_user_model()
 
 #  Auth serializer
-
 class UserRegisterSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = UserModel
@@ -17,7 +16,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 		
 	def create(self, valid_data):
 		user_obj = UserModel.objects.create_user(email=valid_data['email'], password=valid_data['password'],username = valid_data['username'])
-		# user_obj.username = valid_data['username']
 		user_obj.save()
 		return user_obj
 
@@ -39,9 +37,15 @@ class UserSerializer(serializers.ModelSerializer):
 
 # Serializer for survey
 class SurveySerializer(serializers.ModelSerializer):
-     class Meta:
+    			
+    class Meta:
         model = Survey
         fields = "__all__"
+	
+    def create(self, valid_data):
+         survey_obj = Survey.objects.create(**valid_data)
+         survey_obj.save()
+         return survey_obj
 
 
 class AnswersSerializer(serializers.ModelSerializer):
