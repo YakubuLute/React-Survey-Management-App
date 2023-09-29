@@ -13,7 +13,6 @@ from django.http import JsonResponse
 
 
 # function views
-
 @api_view(['GET'])
 def surveyList(request):
 	surveys = Survey.objects.all()
@@ -31,8 +30,9 @@ def surveyDetail(request, pk):
 def surveyCreate(request):
 	serializer = SurveySerializer(data=request.data)
 	if serializer.is_valid():
-		serializer.save()
-	return Response(serializer.data)
+		serializer.create(serializer.data)
+
+	return Response({"status": "success", "data": serializer.data})
 
 @api_view(['POST'])
 def surveyUpdate(request, pk):
@@ -73,7 +73,6 @@ class SubmitSurveyResponseView(APIView):
         }
 
         serializer = AnswersSerializer(data=response_data)
-
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
