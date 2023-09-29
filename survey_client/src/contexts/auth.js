@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
       })
       .catch((error) => {
         console.log("There was an error", error);
-        toast.error("SOrry there was an error");
+        toast.error("Sorry there was an error", error);
       });
   };
 
@@ -71,10 +71,21 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
-  const logoutUser = () => {
-    setUserData(null);
-    localStorage.removeItem("username");
-    navigate("/login");
+  const logoutUser = async () => {
+    await axios
+      .post(constant.API_URL_LOGOUT)
+      .then((response) => {
+        console.log(response, "Response from server");
+        toast.success("Logout successfully");
+        // remove user data
+        setUserData(null);
+        localStorage.removeItem("username");
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log("There was an error", error);
+        toast.error("Sorry couldn't log you out", error);
+      });
   };
 
   const contextData = {
