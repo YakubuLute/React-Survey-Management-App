@@ -13,10 +13,9 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 class Survey(models.Model):
-    isActive = models.BooleanField(default=False)
-    isClosed = models.BooleanField(default=False)
+    isActive = models.BooleanField(default=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default="master")
-    survey_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     survey_title = models.CharField(max_length=255)
     date_created = models.DateTimeField(auto_now_add=True)
     time_created = models.TimeField(auto_now=True)
@@ -147,12 +146,12 @@ class Answer(models.Model):
     def __init__(self, *args, **kwargs):
         try:
             question = Question.objects.get(pk=kwargs["question_id"])
-        except KeyError:
+        except KeyError: 
             question = kwargs.get("question")
         body = kwargs.get("body")
         if question and body:
             self.check_answer_body(question, body)
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)  
 
     @property
     def values(self):
